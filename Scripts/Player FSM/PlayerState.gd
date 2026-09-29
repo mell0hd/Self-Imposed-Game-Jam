@@ -8,6 +8,9 @@ var state_machine: PlayerStateMachine
 
 #Virtual methods that child states can override
 
+
+	
+
 func enter():
 	pass
 
