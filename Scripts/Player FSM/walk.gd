@@ -3,7 +3,7 @@ class_name WalkState
 extends PlayerState
 
 
-@export var walk_speed := 100.0
+@export var walk_speed := 120.0
 
 func handleSteer(delta):
 	var turn_speed = 110
@@ -18,6 +18,8 @@ func enter():
 func handle_input(event: InputEvent):
 	var input_direction = Input.get_vector("turn_left","turn_right","move_forward","move_backward")
 	if Input.is_anything_pressed():	
+		if Input.is_action_just_pressed("quick_turn"):
+			state_machine.change_state("quickturnstate")
 		if Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_forward"):
 			if Input.is_action_pressed("turn_left") or Input.is_action_pressed("turn_right"):
 				state_machine.change_state("strafestate")
@@ -30,7 +32,7 @@ func handle_input(event: InputEvent):
 			animation.set("parameters/Walk Direction/transition_request", "Walk Forward")
 		else:
 			animation.set("parameters/Walk Direction/transition_request", "Walk Backward")
-		if Input.is_action_just_pressed("run"):
+		if Input.is_action_pressed("run"):
 			state_machine.change_state("runstate")
 	elif Input.is_anything_pressed() == false:
 		state_machine.change_state("idlestate")

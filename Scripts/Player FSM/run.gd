@@ -16,14 +16,15 @@ func handle_input(event: InputEvent):
 	var input_direction = Input.get_vector("turn_left","turn_right","move_forward","move_backward")
 	
 	if Input.is_anything_pressed() == true:	
-		
+		if Input.is_action_just_pressed("quick_turn"):
+			state_machine.change_state("quickturnstate")
 		if Input.is_action_pressed("run"):
 			
-			if input_direction.y <0 and Input.is_action_pressed("move_forward") and Input.is_action_pressed("run"):
+			if input_direction.y <0 and Input.is_action_pressed("move_forward"):
 				animation.set("parameters/Locomotion/transition_request", "Run")
 				animation.set("parameters/Run Direction/transition_request", "Run Forward")
 				
-			if input_direction.y > 0 and Input.is_action_pressed("move_backward")  and Input.is_action_pressed("run"):
+			if input_direction.y > 0 and Input.is_action_pressed("move_backward"):
 				animation.set("parameters/Locomotion/transition_request", "Run")
 				animation.set("parameters/Run Direction/transition_request", "Run Backward")
 		
@@ -39,10 +40,10 @@ func physics_update(delta: float):
 	var walk_velocity = (player.basis.z * -1) * input_direction * run_speed * delta
 	player.velocity.x = walk_velocity.x
 	player.velocity.z = walk_velocity.z
-	print(player.velocity)
+	
 	
 	if player.velocity == Vector3(0.0,0.0,0.0):
 			animation.set("parameters/Locomotion/transition_request", "Idle")
-	if player.velocity == Vector3(0.0,0.0,0.0) and Input.is_action_pressed("turn_left") or Input.is_action_pressed("turn_right"):
+	if player.velocity == Vector3(0.0,0.0,0.0) and Input.is_action_pressed("turn_left") or Input.is_action_pressed("turn_right") and not Input.is_action_pressed("run"):
 			state_machine.change_state("turnstate")
 	player.move_and_slide()

@@ -8,3 +8,19 @@ this is going to be a small project, very small for what you think someone shoul
 
 Day 1
 (put journal entry in here that i wrote yesterday but do it later i wanna program now :-3)
+
+Day 2
+
+-finished basic player movement
+-started grayboxing
+-installed trenchbroom for later level development
+-went to a job interview
+	-it went great!!!
+-did not get job :-( it had really shitty hours anyways
+
+tomorrow:
+	start basic combat
+	finish greybox
+	interaction system
+	model mc
+	apply for more jobs sighhhhh

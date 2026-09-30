@@ -3,10 +3,14 @@ extends PlayerState
 
 func enter():
 	print("entered walk strafe state")
+	print("you made a wrong turn, better go back before you get lost")
+	state_machine.change_state("idlestate")
+	
 	
 	
 func handle_input(event: InputEvent):
-	pass
+	if Input.is_anything_pressed() == false:
+		state_machine.change_state("idlestate")
 	#var input_direction = Input.get_vector("turn_left","turn_right","move_forward","move_backward")
 	#if Input.is_action_pressed("move_forward") and Input.is_action_pressed("turn_left") or Input.is_action_pressed("turn_left"):	
 			#animation.set("parameters/Walk Direction/transition_request", "Walk Strafe Left")
