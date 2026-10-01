@@ -20,10 +20,10 @@ func handle_input(event: InputEvent):
 	if Input.is_anything_pressed():	
 		if Input.is_action_just_pressed("quick_turn"):
 			state_machine.change_state("quickturnstate")
-		if Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_forward"):
-			if Input.is_action_pressed("turn_left") or Input.is_action_pressed("turn_right"):
-				state_machine.change_state("strafestate")
-				print("strafe state being accessed")
+		#if Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_forward"):
+			#if Input.is_action_pressed("turn_left") or Input.is_action_pressed("turn_right"):
+				#state_machine.change_state("strafestate")
+				#print("strafe state being accessed")
 		if input_direction.x < 0:
 			pass
 		else:

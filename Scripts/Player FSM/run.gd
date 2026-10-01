@@ -10,6 +10,7 @@ func handleSteer(delta):
 
 func enter():
 	print("entered run state")
+	animation.set("parameters/Run Direction/transition_request", "Run Forward")
 	
 
 func handle_input(event: InputEvent):

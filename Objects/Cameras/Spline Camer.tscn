@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqe8jj40gmrtm"]
+
+[ext_resource type="Script" uid="uid://chqea2yawk6t8" path="res://Objects/Cameras/Scripts/rail_camera.gd" id="1_brb02"]
+[ext_resource type="PackedScene" uid="uid://dltj7nkgsaaov" path="res://Objects/Cameras/re_camera.tscn" id="1_pyene"]
+
+[sub_resource type="Curve3D" id="Curve3D_8ao8x"]
+
+[node name="Rail Camera" type="Path3D" unique_id=900673220 node_paths=PackedStringArray("path_follow", "camera")]
+curve = SubResource("Curve3D_8ao8x")
+script = ExtResource("1_brb02")
+path_follow = NodePath("PathFollow3D")
+camera = NodePath("PathFollow3D/ReCamera")
+camera_distance_behind = 0.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=2013130631]
+loop = false
+
+[node name="ReCamera" parent="PathFollow3D" unique_id=1684705865 instance=ExtResource("1_pyene")]

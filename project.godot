@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Self Imposed Game Jam"
-run/main_scene="uid://cxppur2q63nfn"
+run/main_scene="uid://posw66wt0b8q"
 config/features=PackedStringArray("4.8", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 
 [input]
 

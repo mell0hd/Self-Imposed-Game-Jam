@@ -2,8 +2,8 @@ class_name PlayerState
 extends CharacterBody3D
 
 var state_machine: PlayerStateMachine
-@onready var player = $"../../../Player"
-@onready var animation: AnimationTree = $"../../../Player/Model/AnimationTree"
+@onready var player = $"../.."
+@onready var animation: AnimationTree = $"../../Model/AnimationTree"
 
 
 #Virtual methods that child states can override
